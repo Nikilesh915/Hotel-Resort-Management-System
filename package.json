@@ -1,0 +1,23 @@
+{
+  "name": "hotel-reservation-management-platform",
+  "version": "1.0.0",
+  "description": "Hotel, Resort & Property Reservation Management Platform (MERN Stack)",
+  "scripts": {
+    "start": "node backend/src/server.js",
+    "seed": "cd backend && npm run seed",
+    "test": "cd backend && npm test",
+    "build": "cd frontend && npm run build",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev"
+  },
+  "keywords": [
+    "hotel-reservation",
+    "mern-stack",
+    "concurrency-control",
+    "double-booking-prevention",
+    "mongodb-transactions",
+    "idempotency"
+  ],
+  "author": "Antigravity Engineering",
+  "license": "MIT"
+}
