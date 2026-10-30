@@ -22,3 +22,4 @@ router.put('/:id/status', requireRoles('ADMIN', 'PROPERTY_MANAGER'), handleUpdat
 router.post('/:id/cancel', handleCancelReservation);
 
 export default router;
+

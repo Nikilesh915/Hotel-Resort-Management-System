@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Hotel, AlertCircle, Loader2, KeyRound, Sparkles } from 'lucide-react';
+import { Hotel, AlertCircle, Loader2, Sparkles } from 'lucide-react';
 
 export const Login = () => {
   const [email, setEmail] = useState('');
@@ -40,11 +40,11 @@ export const Login = () => {
   return (
     <div className="max-w-md mx-auto my-16 px-4 space-y-6">
       <div className="text-center space-y-2">
-        <div className="w-12 h-12 bg-teal-100 text-teal-700 rounded-2xl flex items-center justify-center mx-auto shadow-sm">
+        <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mx-auto shadow-sm border border-blue-100">
           <Hotel className="w-6 h-6" />
         </div>
         <h1 className="text-2xl font-black text-gray-900">Sign in to GrandStay</h1>
-        <p className="text-xs text-gray-500">Access your reservations or manage hotel properties.</p>
+        <p className="text-xs text-gray-500">Access your hotel reservations or property manager portal.</p>
       </div>
 
       {error && (
@@ -56,7 +56,7 @@ export const Login = () => {
 
       {/* Demo Credentials Helper */}
       <div className="bg-slate-900 text-white p-4 rounded-2xl space-y-2.5 text-xs shadow-md">
-        <div className="flex items-center space-x-1.5 text-teal-400 font-bold">
+        <div className="flex items-center space-x-1.5 text-blue-400 font-bold">
           <Sparkles className="w-3.5 h-3.5" />
           <span>Quick Demo Logins (Password123!)</span>
         </div>
@@ -66,7 +66,7 @@ export const Login = () => {
             onClick={() => fillDemo('admin@example.com')}
             className="bg-slate-800 hover:bg-slate-700 p-2 rounded-lg text-left transition border border-slate-700"
           >
-            <p className="font-bold text-[11px] text-teal-300">Super Admin</p>
+            <p className="font-bold text-[11px] text-blue-300">Super Admin</p>
             <p className="text-[10px] text-slate-400 truncate">admin@example.com</p>
           </button>
           <button
@@ -74,7 +74,7 @@ export const Login = () => {
             onClick={() => fillDemo('manager1@example.com')}
             className="bg-slate-800 hover:bg-slate-700 p-2 rounded-lg text-left transition border border-slate-700"
           >
-            <p className="font-bold text-[11px] text-teal-300">Manager Mumbai</p>
+            <p className="font-bold text-[11px] text-blue-300">Manager Mumbai</p>
             <p className="text-[10px] text-slate-400 truncate">manager1@example.com</p>
           </button>
           <button
@@ -82,7 +82,7 @@ export const Login = () => {
             onClick={() => fillDemo('guest1@example.com')}
             className="bg-slate-800 hover:bg-slate-700 p-2 rounded-lg text-left transition border border-slate-700"
           >
-            <p className="font-bold text-[11px] text-teal-300">Guest One</p>
+            <p className="font-bold text-[11px] text-blue-300">Guest One</p>
             <p className="text-[10px] text-slate-400 truncate">guest1@example.com</p>
           </button>
           <button
@@ -90,7 +90,7 @@ export const Login = () => {
             onClick={() => fillDemo('guest2@example.com')}
             className="bg-slate-800 hover:bg-slate-700 p-2 rounded-lg text-left transition border border-slate-700"
           >
-            <p className="font-bold text-[11px] text-teal-300">Guest Two</p>
+            <p className="font-bold text-[11px] text-blue-300">Guest Two</p>
             <p className="text-[10px] text-slate-400 truncate">guest2@example.com</p>
           </button>
         </div>
@@ -104,7 +104,7 @@ export const Login = () => {
             required
             value={email}
             onChange={e => setEmail(e.target.value)}
-            className="w-full text-xs border border-gray-200 rounded-lg p-2.5 focus:ring-1 focus:ring-teal-500 focus:outline-none"
+            className="w-full text-xs border border-gray-200 rounded-lg p-2.5 focus:ring-1 focus:ring-blue-500 focus:outline-none"
             placeholder="you@example.com"
           />
         </div>
@@ -116,7 +116,7 @@ export const Login = () => {
             required
             value={password}
             onChange={e => setPassword(e.target.value)}
-            className="w-full text-xs border border-gray-200 rounded-lg p-2.5 focus:ring-1 focus:ring-teal-500 focus:outline-none"
+            className="w-full text-xs border border-gray-200 rounded-lg p-2.5 focus:ring-1 focus:ring-blue-500 focus:outline-none"
             placeholder="••••••••"
           />
         </div>
@@ -124,7 +124,7 @@ export const Login = () => {
         <button
           type="submit"
           disabled={submitting}
-          className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm transition flex items-center justify-center space-x-2 text-xs disabled:opacity-50"
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm transition flex items-center justify-center space-x-2 text-xs disabled:opacity-50"
         >
           {submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <span>Sign In</span>}
         </button>
@@ -132,7 +132,7 @@ export const Login = () => {
 
       <p className="text-center text-xs text-gray-500">
         Don't have an account?{' '}
-        <Link to="/register" className="font-bold text-teal-600 hover:underline">
+        <Link to="/register" className="font-bold text-blue-600 hover:underline">
           Create Guest Account
         </Link>
       </p>

@@ -61,3 +61,4 @@ export const validateCoupon = async ({ code, property_id, booking_amount, guest_
     minimum_booking_amount: coupon.minimum_booking_amount
   };
 };
+

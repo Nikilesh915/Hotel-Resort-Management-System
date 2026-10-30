@@ -76,3 +76,4 @@ The development is divided into 14 distinct phases:
 ### Phase 14: Deployment & Final Documentation
 - Build production assets.
 - Prepare complete setup and run instructions.
+

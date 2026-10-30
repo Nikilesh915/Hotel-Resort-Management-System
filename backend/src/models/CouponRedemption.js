@@ -47,3 +47,4 @@ const couponRedemptionSchema = new mongoose.Schema(
 couponRedemptionSchema.index({ coupon_id: 1, guest_id: 1 });
 
 export const CouponRedemption = mongoose.model('CouponRedemption', couponRedemptionSchema);
+

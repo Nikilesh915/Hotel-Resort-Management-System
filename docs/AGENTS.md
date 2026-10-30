@@ -15,3 +15,4 @@ Never weaken or bypass concurrency control, price calculation integrity, or role
 - **Frontend**: React 18+, Vite, Tailwind CSS, React Router v6, Axios.
 - **Module Format**: ES Modules (`"type": "module"`).
 - **Error Handling**: Use centralized error handling with custom error classes (`NotFoundError`, `BadRequestError`, `UnauthorizedError`, `ConflictError`).
+

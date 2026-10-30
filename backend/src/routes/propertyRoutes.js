@@ -11,3 +11,4 @@ router.post('/', authMiddleware, requireRoles('ADMIN'), createProperty);
 router.put('/:id', authMiddleware, requireRoles('ADMIN', 'PROPERTY_MANAGER'), updateProperty);
 
 export default router;
+

@@ -11,3 +11,4 @@ router.post('/', authMiddleware, requireRoles('ADMIN'), createCoupon);
 router.put('/:id/status', authMiddleware, requireRoles('ADMIN'), updateCouponStatus);
 
 export default router;
+

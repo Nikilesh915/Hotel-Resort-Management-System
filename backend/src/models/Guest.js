@@ -55,3 +55,4 @@ const guestSchema = new mongoose.Schema(
 );
 
 export const Guest = mongoose.model('Guest', guestSchema);
+

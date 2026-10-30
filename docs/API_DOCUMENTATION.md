@@ -199,3 +199,4 @@
 - **Access**: `ADMIN`
 - **Query Params**: `entity_type`, `action`, `limit`, `skip`
 - **Response**: Immutable system audit logs.
+

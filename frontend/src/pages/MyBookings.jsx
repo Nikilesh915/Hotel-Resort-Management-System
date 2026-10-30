@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import api from '../api/client';
 import { useAuth } from '../context/AuthContext';
-import { Calendar, Hotel, AlertCircle, CheckCircle2, Clock, XCircle, ArrowRight, Loader2, RefreshCw } from 'lucide-react';
+import { Hotel, AlertCircle, CheckCircle2, RefreshCw, Loader2 } from 'lucide-react';
 
 export const MyBookings = () => {
   const { user } = useAuth();
   const [reservations, setReservations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [cancellingId, setCancellingId] = useState(null);
   const [selectedRes, setSelectedRes] = useState(null);
   const [cancelModal, setCancelModal] = useState(false);
   const [cancelReason, setCancelReason] = useState('Change of travel schedule');
@@ -79,11 +78,11 @@ export const MyBookings = () => {
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-2xl font-black text-gray-900">My Bookings & Reservations</h1>
-          <p className="text-xs text-gray-500 mt-1">Manage current stays, view payment receipts, and execute policy-based cancellations.</p>
+          <p className="text-xs text-gray-500 mt-1">Manage your active reservations, view payment receipts, and execute policy-based cancellations.</p>
         </div>
         <button
           onClick={fetchMyBookings}
-          className="p-2 text-gray-500 hover:text-teal-600 hover:bg-gray-100 rounded-lg transition"
+          className="p-2 text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition"
           title="Refresh"
         >
           <RefreshCw className="w-4 h-4" />
@@ -98,7 +97,7 @@ export const MyBookings = () => {
       )}
 
       {loading ? (
-        <div className="py-16 flex justify-center text-teal-600">
+        <div className="py-16 flex justify-center text-blue-600">
           <Loader2 className="w-8 h-8 animate-spin" />
         </div>
       ) : reservations.length === 0 ? (
@@ -114,7 +113,7 @@ export const MyBookings = () => {
           {reservations.map(res => (
             <div
               key={res.reservation_id}
-              className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-6"
+              className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition flex flex-col md:flex-row justify-between items-start md:items-center gap-6"
             >
               <div className="space-y-2 flex-1">
                 <div className="flex items-center space-x-2">
@@ -137,7 +136,7 @@ export const MyBookings = () => {
                   </div>
                   <div>
                     <span className="text-gray-400 block text-[10px]">Policy</span>
-                    <span className="font-semibold text-teal-700">{res.cancellation_policy}</span>
+                    <span className="font-semibold text-blue-700">{res.cancellation_policy}</span>
                   </div>
                 </div>
               </div>
@@ -152,7 +151,7 @@ export const MyBookings = () => {
                   {res.status === 'PENDING' && (
                     <a
                       href={`/payment/${res.reservation_id}`}
-                      className="bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs px-3.5 py-1.5 rounded-lg transition shadow-sm"
+                      className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-3.5 py-1.5 rounded-lg transition shadow-sm"
                     >
                       Pay Now
                     </a>
@@ -200,7 +199,7 @@ export const MyBookings = () => {
                 </div>
                 <button
                   onClick={() => setCancelModal(false)}
-                  className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-2.5 rounded-xl text-xs"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl text-xs shadow-sm"
                 >
                   Close
                 </button>
@@ -208,20 +207,20 @@ export const MyBookings = () => {
             ) : (
               <div className="space-y-4 text-xs">
                 <p className="text-gray-600">
-                  Are you sure you want to cancel booking <span className="font-bold font-mono">{selectedRes.reservation_number}</span>?
+                  Are you sure you want to cancel booking <span className="font-bold font-mono text-gray-900">{selectedRes.reservation_number}</span>?
                 </p>
 
-                <div className="bg-gray-50 p-4 rounded-xl space-y-2 border border-gray-200">
+                <div className="bg-blue-50/40 p-4 rounded-xl space-y-2 border border-blue-100">
                   <div className="flex justify-between font-bold">
                     <span>Applied Policy:</span>
-                    <span className="text-teal-700">{selectedRes.cancellation_policy}</span>
+                    <span className="text-blue-700">{selectedRes.cancellation_policy}</span>
                   </div>
                   <div className="flex justify-between text-gray-500">
                     <span>Paid Amount:</span>
-                    <span>₹{selectedRes.total_amount?.toLocaleString()}</span>
+                    <span className="font-bold text-gray-900">₹{selectedRes.total_amount?.toLocaleString()}</span>
                   </div>
-                  <p className="text-[11px] text-gray-500 pt-1 border-t border-gray-200">
-                    Refund amount will be automatically computed server-side based on the property cancellation policy and remaining check-in countdown.
+                  <p className="text-[11px] text-gray-500 pt-1 border-t border-blue-100">
+                    Refund amount is calculated server-side according to policy rules and check-in timeline.
                   </p>
                 </div>
 
@@ -231,7 +230,7 @@ export const MyBookings = () => {
                     rows={2}
                     value={cancelReason}
                     onChange={e => setCancelReason(e.target.value)}
-                    className="w-full border border-gray-200 rounded-lg p-2.5 text-xs focus:ring-1 focus:ring-teal-500 focus:outline-none"
+                    className="w-full border border-gray-200 rounded-lg p-2.5 text-xs focus:ring-1 focus:ring-blue-500 focus:outline-none"
                   />
                 </div>
 

@@ -44,3 +44,4 @@ const roomTypeSchema = new mongoose.Schema(
 );
 
 export const RoomType = mongoose.model('RoomType', roomTypeSchema);
+

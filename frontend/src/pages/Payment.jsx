@@ -57,7 +57,7 @@ export const PaymentPage = () => {
 
   if (loading) {
     return (
-      <div className="min-h-[50vh] flex items-center justify-center text-teal-600">
+      <div className="min-h-[50vh] flex items-center justify-center text-blue-600">
         <Loader2 className="w-8 h-8 animate-spin" />
       </div>
     );
@@ -65,26 +65,26 @@ export const PaymentPage = () => {
 
   if (successPayment) {
     return (
-      <div className="max-w-xl mx-auto my-16 bg-white border border-gray-200 rounded-3xl p-8 shadow-lg text-center space-y-6">
-        <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto shadow-inner">
+      <div className="max-w-xl mx-auto my-16 bg-white border border-gray-200 rounded-3xl p-8 shadow-xl text-center space-y-6">
+        <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mx-auto shadow-inner border border-blue-100">
           <CheckCircle2 className="w-10 h-10" />
         </div>
 
         <div className="space-y-2">
-          <h1 className="text-2xl font-black text-gray-900">Payment & Reservation Confirmed!</h1>
+          <h1 className="text-2xl font-black text-gray-900">Payment Confirmed!</h1>
           <p className="text-xs text-gray-500">
             Your booking is fully locked and confirmed in the hotel reservation roster.
           </p>
         </div>
 
-        <div className="bg-gray-50 rounded-2xl p-5 border border-gray-100 text-left text-xs space-y-2.5">
+        <div className="bg-blue-50/40 rounded-2xl p-5 border border-blue-100 text-left text-xs space-y-2.5">
           <div className="flex justify-between">
             <span className="text-gray-500">Reservation Number:</span>
             <span className="font-mono font-bold text-gray-900">{reservation?.reservation_number}</span>
           </div>
           <div className="flex justify-between">
             <span className="text-gray-500">Transaction Reference:</span>
-            <span className="font-mono font-bold text-teal-700">{successPayment.payment_reference}</span>
+            <span className="font-mono font-bold text-blue-700">{successPayment.payment_reference}</span>
           </div>
           <div className="flex justify-between">
             <span className="text-gray-500">Total Paid Amount:</span>
@@ -105,7 +105,7 @@ export const PaymentPage = () => {
         <div className="flex space-x-3">
           <button
             onClick={() => navigate('/my-bookings')}
-            className="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl text-xs transition"
+            className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl text-xs transition shadow-sm"
           >
             View in My Bookings
           </button>
@@ -138,7 +138,7 @@ export const PaymentPage = () => {
 
       {/* Reservation Summary */}
       <div className="bg-white rounded-2xl border border-gray-200 p-6 space-y-4 shadow-sm">
-        <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider">Amount Due</h2>
+        <h2 className="text-xs font-bold text-gray-500 uppercase tracking-wider">Amount Due</h2>
         <div className="flex justify-between items-baseline">
           <div>
             <p className="text-xs text-gray-500">Room: {reservation?.room_id} ({reservation?.property?.name})</p>
@@ -146,7 +146,7 @@ export const PaymentPage = () => {
               {reservation?.check_in_date?.split('T')[0]} to {reservation?.check_out_date?.split('T')[0]}
             </p>
           </div>
-          <span className="text-3xl font-black text-teal-700">
+          <span className="text-3xl font-black text-blue-700">
             ₹{reservation?.total_amount?.toLocaleString()}
           </span>
         </div>
@@ -154,7 +154,7 @@ export const PaymentPage = () => {
 
       {/* Payment Method Selector */}
       <form onSubmit={handlePay} className="bg-white rounded-2xl border border-gray-200 p-6 space-y-6 shadow-sm">
-        <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider">Select Payment Method</h2>
+        <h2 className="text-xs font-bold text-gray-500 uppercase tracking-wider">Select Payment Method</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {[
@@ -168,7 +168,7 @@ export const PaymentPage = () => {
                 key={m.id}
                 className={`flex flex-col items-center justify-center p-4 rounded-xl border cursor-pointer text-center space-y-2 transition ${
                   paymentMethod === m.id
-                    ? 'border-teal-600 bg-teal-50/50 text-teal-900'
+                    ? 'border-blue-600 bg-blue-50/50 text-blue-900 shadow-sm'
                     : 'border-gray-200 text-gray-600 hover:bg-gray-50'
                 }`}
               >
@@ -180,7 +180,7 @@ export const PaymentPage = () => {
                   onChange={() => setPaymentMethod(m.id)}
                   className="sr-only"
                 />
-                <Icon className={`w-6 h-6 ${paymentMethod === m.id ? 'text-teal-600' : 'text-gray-400'}`} />
+                <Icon className={`w-6 h-6 ${paymentMethod === m.id ? 'text-blue-600' : 'text-gray-400'}`} />
                 <span className="text-xs font-bold">{m.label}</span>
               </label>
             );
@@ -195,7 +195,7 @@ export const PaymentPage = () => {
                 type="text"
                 placeholder="4111 •••• •••• 1111"
                 defaultValue="4111 2222 3333 4444"
-                className="w-full text-xs font-mono border border-gray-200 rounded-lg p-2.5 focus:ring-1 focus:ring-teal-500 focus:outline-none"
+                className="w-full text-xs font-mono border border-gray-200 rounded-lg p-2.5 focus:ring-1 focus:ring-blue-500 focus:outline-none"
               />
             </div>
             <div className="grid grid-cols-2 gap-3">
@@ -205,7 +205,7 @@ export const PaymentPage = () => {
                   type="text"
                   placeholder="MM/YY"
                   defaultValue="12/28"
-                  className="w-full text-xs font-mono border border-gray-200 rounded-lg p-2.5 focus:ring-1 focus:ring-teal-500 focus:outline-none"
+                  className="w-full text-xs font-mono border border-gray-200 rounded-lg p-2.5 focus:ring-1 focus:ring-blue-500 focus:outline-none"
                 />
               </div>
               <div>
@@ -214,7 +214,7 @@ export const PaymentPage = () => {
                   type="password"
                   placeholder="•••"
                   defaultValue="123"
-                  className="w-full text-xs font-mono border border-gray-200 rounded-lg p-2.5 focus:ring-1 focus:ring-teal-500 focus:outline-none"
+                  className="w-full text-xs font-mono border border-gray-200 rounded-lg p-2.5 focus:ring-1 focus:ring-blue-500 focus:outline-none"
                 />
               </div>
             </div>
@@ -224,7 +224,7 @@ export const PaymentPage = () => {
         <button
           type="submit"
           disabled={submitting}
-          className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition flex items-center justify-center space-x-2 disabled:opacity-50 text-sm"
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition flex items-center justify-center space-x-2 disabled:opacity-50 text-sm"
         >
           {submitting ? (
             <>
@@ -240,8 +240,8 @@ export const PaymentPage = () => {
         </button>
 
         <div className="flex items-center justify-center space-x-1.5 text-[11px] text-gray-400">
-          <ShieldCheck className="w-3.5 h-3.5 text-teal-600" />
-          <span>Idempotent execution with protected payment reference</span>
+          <ShieldCheck className="w-3.5 h-3.5 text-blue-600" />
+          <span>Idempotent execution with protected transaction reference</span>
         </div>
       </form>
     </div>

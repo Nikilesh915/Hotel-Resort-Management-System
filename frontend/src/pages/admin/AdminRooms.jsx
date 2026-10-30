@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../api/client';
-import { BedDouble, Plus, AlertCircle, Loader2, CheckCircle2, Wrench } from 'lucide-react';
+import { BedDouble, Plus, AlertCircle, Loader2, Wrench } from 'lucide-react';
 
 export const AdminRooms = () => {
   const [rooms, setRooms] = useState([]);
@@ -99,7 +99,7 @@ export const AdminRooms = () => {
           <select
             value={selectedProperty}
             onChange={e => setSelectedProperty(e.target.value)}
-            className="border border-gray-200 rounded-xl p-2.5 text-xs font-semibold focus:ring-1 focus:ring-teal-500 focus:outline-none"
+            className="border border-gray-200 rounded-xl p-2.5 text-xs font-semibold focus:ring-1 focus:ring-blue-500 focus:outline-none"
           >
             {properties.map(p => (
               <option key={p.property_id} value={p.property_id}>
@@ -110,7 +110,7 @@ export const AdminRooms = () => {
 
           <button
             onClick={() => setModalOpen(true)}
-            className="bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-sm transition flex items-center space-x-1.5 whitespace-nowrap"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-sm transition flex items-center space-x-1.5 whitespace-nowrap"
           >
             <Plus className="w-4 h-4" />
             <span>Add Physical Room</span>
@@ -119,7 +119,7 @@ export const AdminRooms = () => {
       </div>
 
       {loading ? (
-        <div className="py-20 flex justify-center text-teal-600">
+        <div className="py-20 flex justify-center text-blue-600">
           <Loader2 className="w-8 h-8 animate-spin" />
         </div>
       ) : (
@@ -162,7 +162,7 @@ export const AdminRooms = () => {
                       className={`text-xs font-bold px-3 py-1 rounded-lg transition border ${
                         r.status === 'AVAILABLE'
                           ? 'border-amber-300 text-amber-700 hover:bg-amber-50'
-                          : 'border-emerald-300 text-emerald-700 hover:bg-emerald-50'
+                          : 'border-blue-300 text-blue-700 hover:bg-blue-50'
                       }`}
                     >
                       {r.status === 'AVAILABLE' ? 'Mark Maintenance' : 'Mark Available'}
@@ -242,7 +242,7 @@ export const AdminRooms = () => {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="flex-1 bg-teal-600 hover:bg-teal-700 text-white font-bold py-2.5 rounded-xl"
+                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl shadow-sm"
                 >
                   Create Room
                 </button>

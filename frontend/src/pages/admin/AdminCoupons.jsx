@@ -86,7 +86,7 @@ export const AdminCoupons = () => {
 
         <button
           onClick={() => setModalOpen(true)}
-          className="bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-sm transition flex items-center space-x-1.5"
+          className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-sm transition flex items-center space-x-1.5"
         >
           <Plus className="w-4 h-4" />
           <span>Create Coupon</span>
@@ -94,7 +94,7 @@ export const AdminCoupons = () => {
       </div>
 
       {loading ? (
-        <div className="py-20 flex justify-center text-teal-600">
+        <div className="py-20 flex justify-center text-blue-600">
           <Loader2 className="w-8 h-8 animate-spin" />
         </div>
       ) : (
@@ -116,7 +116,7 @@ export const AdminCoupons = () => {
               {coupons.map(c => (
                 <tr key={c.coupon_id} className="hover:bg-gray-50/50">
                   <td className="p-4 font-mono font-bold text-gray-900">{c.code}</td>
-                  <td className="p-4 font-bold text-teal-700">
+                  <td className="p-4 font-bold text-blue-700">
                     {c.discount_type === 'PERCENTAGE' ? `${c.discount_value}%` : `₹${c.discount_value}`}
                   </td>
                   <td className="p-4">₹{c.minimum_booking_amount?.toLocaleString()}</td>
@@ -142,7 +142,7 @@ export const AdminCoupons = () => {
                       className={`text-xs font-bold px-2.5 py-1 rounded-lg border transition ${
                         c.status === 'ACTIVE'
                           ? 'border-rose-200 text-rose-700 hover:bg-rose-50'
-                          : 'border-emerald-200 text-emerald-700 hover:bg-emerald-50'
+                          : 'border-blue-200 text-blue-700 hover:bg-blue-50'
                       }`}
                     >
                       {c.status === 'ACTIVE' ? 'Disable' : 'Enable'}
@@ -278,7 +278,7 @@ export const AdminCoupons = () => {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="flex-1 bg-teal-600 hover:bg-teal-700 text-white font-bold py-2.5 rounded-xl"
+                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl shadow-sm"
                 >
                   Create Coupon
                 </button>

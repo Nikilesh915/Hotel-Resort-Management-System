@@ -62,3 +62,4 @@ export const getAllPayments = async (req, res, next) => {
     next(error);
   }
 };
+

@@ -11,3 +11,4 @@ router.get('/dashboard/stats', requireRoles('ADMIN', 'PROPERTY_MANAGER'), getDas
 router.get('/audit-logs', requireRoles('ADMIN'), getAuditLogs);
 
 export default router;
+

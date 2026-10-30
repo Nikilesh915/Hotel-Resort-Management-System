@@ -45,3 +45,4 @@ const roomPricingSchema = new mongoose.Schema(
 roomPricingSchema.index({ room_type_id: 1, start_date: 1, end_date: 1 });
 
 export const RoomPricing = mongoose.model('RoomPricing', roomPricingSchema);
+

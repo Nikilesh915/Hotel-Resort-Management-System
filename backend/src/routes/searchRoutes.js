@@ -7,3 +7,4 @@ router.get('/availability', searchAvailableRooms);
 router.post('/quote', getPricingQuote);
 
 export default router;
+

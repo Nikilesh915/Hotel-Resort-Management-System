@@ -97,3 +97,4 @@ const reservationSchema = new mongoose.Schema(
 reservationSchema.index({ room_id: 1, status: 1, check_in_date: 1, check_out_date: 1 });
 
 export const Reservation = mongoose.model('Reservation', reservationSchema);
+

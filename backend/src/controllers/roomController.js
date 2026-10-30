@@ -133,3 +133,4 @@ export const createRoomType = async (req, res, next) => {
     next(error);
   }
 };
+

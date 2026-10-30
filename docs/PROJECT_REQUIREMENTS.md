@@ -69,3 +69,4 @@ The platform must support and faithfully preserve the entities and relationships
    - Guests cannot view, update, or cancel reservations belonging to other guests.
    - Property managers are scoped to their assigned properties.
    - Guests cannot modify room inventory or pricing.
+

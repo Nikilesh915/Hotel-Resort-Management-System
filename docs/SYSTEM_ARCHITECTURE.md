@@ -75,3 +75,4 @@ The server pipeline executes:
 - Stateless JWT authentication via HTTP Authorization Header (`Bearer <token>`).
 - Role-based authorization middleware enforcing least-privilege access.
 - In-depth query scoping to prevent Insecure Direct Object References (IDOR).
+

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../api/client';
-import { CalendarCheck, AlertCircle, Loader2, CheckCircle2, RefreshCw } from 'lucide-react';
+import { CalendarCheck, AlertCircle, Loader2, RefreshCw } from 'lucide-react';
 
 export const AdminReservations = () => {
   const [reservations, setReservations] = useState([]);
@@ -65,7 +65,7 @@ export const AdminReservations = () => {
           <select
             value={statusFilter}
             onChange={e => setStatusFilter(e.target.value)}
-            className="border border-gray-200 rounded-xl p-2.5 text-xs font-semibold focus:ring-1 focus:ring-teal-500 focus:outline-none"
+            className="border border-gray-200 rounded-xl p-2.5 text-xs font-semibold focus:ring-1 focus:ring-blue-500 focus:outline-none"
           >
             <option value="">All Statuses</option>
             <option value="CONFIRMED">CONFIRMED</option>
@@ -78,7 +78,7 @@ export const AdminReservations = () => {
 
           <button
             onClick={fetchReservations}
-            className="p-2 text-gray-500 hover:text-teal-600 hover:bg-gray-100 rounded-lg transition"
+            className="p-2 text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition"
             title="Refresh Roster"
           >
             <RefreshCw className="w-4 h-4" />
@@ -87,7 +87,7 @@ export const AdminReservations = () => {
       </div>
 
       {loading ? (
-        <div className="py-20 flex justify-center text-teal-600">
+        <div className="py-20 flex justify-center text-blue-600">
           <Loader2 className="w-8 h-8 animate-spin" />
         </div>
       ) : (
@@ -123,7 +123,7 @@ export const AdminReservations = () => {
                     {r.status === 'CONFIRMED' && (
                       <button
                         onClick={() => handleUpdateStatus(r.reservation_id, 'CHECKED_IN')}
-                        className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-[11px] px-2.5 py-1 rounded-md transition"
+                        className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-[11px] px-2.5 py-1 rounded-md transition shadow-sm"
                       >
                         Check-In
                       </button>
@@ -139,7 +139,7 @@ export const AdminReservations = () => {
                     {['PENDING'].includes(r.status) && (
                       <button
                         onClick={() => handleUpdateStatus(r.reservation_id, 'CONFIRMED')}
-                        className="bg-teal-600 hover:bg-teal-700 text-white font-bold text-[11px] px-2.5 py-1 rounded-md transition"
+                        className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-[11px] px-2.5 py-1 rounded-md transition"
                       >
                         Force Confirm
                       </button>

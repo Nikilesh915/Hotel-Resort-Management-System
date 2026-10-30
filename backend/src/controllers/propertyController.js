@@ -116,3 +116,4 @@ export const updateProperty = async (req, res, next) => {
     next(error);
   }
 };
+

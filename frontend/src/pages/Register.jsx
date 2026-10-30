@@ -31,7 +31,7 @@ export const Register = () => {
   return (
     <div className="max-w-md mx-auto my-14 px-4 space-y-6">
       <div className="text-center space-y-2">
-        <div className="w-12 h-12 bg-teal-100 text-teal-700 rounded-2xl flex items-center justify-center mx-auto shadow-sm">
+        <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mx-auto shadow-sm border border-blue-100">
           <Hotel className="w-6 h-6" />
         </div>
         <h1 className="text-2xl font-black text-gray-900">Create Guest Account</h1>
@@ -53,7 +53,7 @@ export const Register = () => {
             required
             value={name}
             onChange={e => setName(e.target.value)}
-            className="w-full text-xs border border-gray-200 rounded-lg p-2.5 focus:ring-1 focus:ring-teal-500 focus:outline-none"
+            className="w-full text-xs border border-gray-200 rounded-lg p-2.5 focus:ring-1 focus:ring-blue-500 focus:outline-none"
             placeholder="John Doe"
           />
         </div>
@@ -65,7 +65,7 @@ export const Register = () => {
             required
             value={email}
             onChange={e => setEmail(e.target.value)}
-            className="w-full text-xs border border-gray-200 rounded-lg p-2.5 focus:ring-1 focus:ring-teal-500 focus:outline-none"
+            className="w-full text-xs border border-gray-200 rounded-lg p-2.5 focus:ring-1 focus:ring-blue-500 focus:outline-none"
             placeholder="john@example.com"
           />
         </div>
@@ -77,7 +77,7 @@ export const Register = () => {
             required
             value={password}
             onChange={e => setPassword(e.target.value)}
-            className="w-full text-xs border border-gray-200 rounded-lg p-2.5 focus:ring-1 focus:ring-teal-500 focus:outline-none"
+            className="w-full text-xs border border-gray-200 rounded-lg p-2.5 focus:ring-1 focus:ring-blue-500 focus:outline-none"
             placeholder="••••••••"
           />
         </div>
@@ -88,7 +88,7 @@ export const Register = () => {
             type="tel"
             value={phone}
             onChange={e => setPhone(e.target.value)}
-            className="w-full text-xs border border-gray-200 rounded-lg p-2.5 focus:ring-1 focus:ring-teal-500 focus:outline-none"
+            className="w-full text-xs border border-gray-200 rounded-lg p-2.5 focus:ring-1 focus:ring-blue-500 focus:outline-none"
             placeholder="+91-9876543210"
           />
         </div>
@@ -99,7 +99,7 @@ export const Register = () => {
             type="text"
             value={address}
             onChange={e => setAddress(e.target.value)}
-            className="w-full text-xs border border-gray-200 rounded-lg p-2.5 focus:ring-1 focus:ring-teal-500 focus:outline-none"
+            className="w-full text-xs border border-gray-200 rounded-lg p-2.5 focus:ring-1 focus:ring-blue-500 focus:outline-none"
             placeholder="Mumbai, Maharashtra"
           />
         </div>
@@ -107,7 +107,7 @@ export const Register = () => {
         <button
           type="submit"
           disabled={submitting}
-          className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm transition flex items-center justify-center space-x-2 text-xs disabled:opacity-50 mt-2"
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm transition flex items-center justify-center space-x-2 text-xs disabled:opacity-50 mt-2"
         >
           {submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <span>Create Account</span>}
         </button>
@@ -115,7 +115,7 @@ export const Register = () => {
 
       <p className="text-center text-xs text-gray-500">
         Already have an account?{' '}
-        <Link to="/login" className="font-bold text-teal-600 hover:underline">
+        <Link to="/login" className="font-bold text-blue-600 hover:underline">
           Sign In
         </Link>
       </p>

@@ -18,3 +18,4 @@ router.post('/', authMiddleware, requireRoles('ADMIN', 'PROPERTY_MANAGER'), crea
 router.put('/:id/status', authMiddleware, requireRoles('ADMIN', 'PROPERTY_MANAGER'), updateRoomStatus);
 
 export default router;
+

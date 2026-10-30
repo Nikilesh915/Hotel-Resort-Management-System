@@ -61,3 +61,4 @@ const propertySchema = new mongoose.Schema(
 );
 
 export const Property = mongoose.model('Property', propertySchema);
+

@@ -30,3 +30,4 @@ const roomDailyAllocationSchema = new mongoose.Schema(
 roomDailyAllocationSchema.index({ room_id: 1, date: 1 }, { unique: true });
 
 export const RoomDailyAllocation = mongoose.model('RoomDailyAllocation', roomDailyAllocationSchema);
+

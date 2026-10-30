@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../api/client';
 import { useAuth } from '../../context/AuthContext';
-import { Building2, Plus, AlertCircle, Loader2, CheckCircle2 } from 'lucide-react';
+import { Plus, Loader2 } from 'lucide-react';
 
 export const AdminProperties = () => {
   const { user } = useAuth();
@@ -71,7 +71,7 @@ export const AdminProperties = () => {
         {user?.role === 'ADMIN' && (
           <button
             onClick={() => setModalOpen(true)}
-            className="bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-sm transition flex items-center space-x-1.5"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-sm transition flex items-center space-x-1.5"
           >
             <Plus className="w-4 h-4" />
             <span>Add Property</span>
@@ -80,7 +80,7 @@ export const AdminProperties = () => {
       </div>
 
       {loading ? (
-        <div className="py-20 flex justify-center text-teal-600">
+        <div className="py-20 flex justify-center text-blue-600">
           <Loader2 className="w-8 h-8 animate-spin" />
         </div>
       ) : (
@@ -102,7 +102,7 @@ export const AdminProperties = () => {
                   <td className="p-4 font-mono font-bold text-gray-900">{p.property_code}</td>
                   <td className="p-4 font-bold text-gray-900">{p.name}</td>
                   <td className="p-4">
-                    <span className="bg-gray-100 text-gray-700 px-2 py-0.5 rounded text-[10px] font-bold">
+                    <span className="bg-blue-50 text-blue-700 px-2.5 py-0.5 rounded text-[10px] font-bold border border-blue-100">
                       {p.property_type}
                     </span>
                   </td>
@@ -207,7 +207,7 @@ export const AdminProperties = () => {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="flex-1 bg-teal-600 hover:bg-teal-700 text-white font-bold py-2.5 rounded-xl"
+                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl shadow-sm"
                 >
                   Create Property
                 </button>

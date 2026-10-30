@@ -8,7 +8,7 @@ export const Checkout = () => {
   const { roomId } = useParams();
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const { user, guest } = useAuth();
+  const { user } = useAuth();
 
   const checkIn = searchParams.get('check_in_date');
   const checkOut = searchParams.get('check_out_date');
@@ -106,7 +106,7 @@ export const Checkout = () => {
         <p className="text-sm text-gray-500">Please choose your dates from the search page before booking.</p>
         <button
           onClick={() => navigate('/search')}
-          className="bg-teal-600 hover:bg-teal-700 text-white font-semibold text-xs px-4 py-2 rounded-lg"
+          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs px-4 py-2 rounded-lg"
         >
           Go to Search
         </button>
@@ -117,8 +117,8 @@ export const Checkout = () => {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
       <div>
-        <h1 className="text-2xl font-black text-gray-900">Review & Confirm Reservation</h1>
-        <p className="text-xs text-gray-500 mt-1">Review verified server-calculated pricing, apply eligible promo codes, and complete booking.</p>
+        <h1 className="text-2xl font-black text-gray-900">Review & Confirm Stay</h1>
+        <p className="text-xs text-gray-500 mt-1">Review verified room pricing, apply eligible promo codes, and complete your booking.</p>
       </div>
 
       {error && (
@@ -137,11 +137,11 @@ export const Checkout = () => {
           {/* Reservation Card */}
           <div className="bg-white rounded-2xl border border-gray-200 p-6 space-y-4 shadow-sm">
             <h2 className="text-base font-bold text-gray-900 flex items-center space-x-2">
-              <Hotel className="w-4 h-4 text-teal-600" />
+              <Hotel className="w-4 h-4 text-blue-600" />
               <span>Stay Details</span>
             </h2>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 bg-gray-50 rounded-xl text-xs">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 bg-blue-50/40 rounded-xl text-xs border border-blue-100">
               <div>
                 <span className="text-gray-400 block font-medium">Room</span>
                 <span className="font-bold text-gray-900">{roomId}</span>
@@ -211,7 +211,7 @@ export const Checkout = () => {
                   key={pol.id}
                   className={`flex items-start space-x-3 p-3.5 rounded-xl border cursor-pointer transition ${
                     cancellationPolicy === pol.id
-                      ? 'border-teal-600 bg-teal-50/40'
+                      ? 'border-blue-600 bg-blue-50/50'
                       : 'border-gray-200 hover:bg-gray-50'
                   }`}
                 >
@@ -221,7 +221,7 @@ export const Checkout = () => {
                     value={pol.id}
                     checked={cancellationPolicy === pol.id}
                     onChange={() => setCancellationPolicy(pol.id)}
-                    className="mt-1 text-teal-600 focus:ring-teal-500"
+                    className="mt-1 text-blue-600 focus:ring-blue-500"
                   />
                   <div className="text-xs">
                     <p className="font-bold text-gray-900">{pol.title}</p>
@@ -239,7 +239,7 @@ export const Checkout = () => {
             <h2 className="text-base font-bold text-gray-900">Price Breakdown</h2>
 
             {loadingQuote ? (
-              <div className="py-8 flex justify-center items-center text-teal-600">
+              <div className="py-8 flex justify-center items-center text-blue-600">
                 <Loader2 className="w-6 h-6 animate-spin" />
               </div>
             ) : quote ? (
@@ -267,8 +267,8 @@ export const Checkout = () => {
                 </div>
 
                 <div className="pt-3 border-t border-gray-200 flex justify-between items-center text-sm font-black text-gray-900">
-                  <span>Total Payable</span>
-                  <span className="text-xl text-teal-700">₹{quote.total_amount.toLocaleString()}</span>
+                  <span>Total Amount</span>
+                  <span className="text-xl text-blue-700">₹{quote.total_amount.toLocaleString()}</span>
                 </div>
               </div>
             ) : null}
@@ -276,12 +276,12 @@ export const Checkout = () => {
             {/* Coupon Box */}
             <div className="pt-4 border-t border-gray-100 space-y-3">
               <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider flex items-center space-x-1">
-                <Tag className="w-3.5 h-3.5 text-teal-600" />
+                <Tag className="w-3.5 h-3.5 text-blue-600" />
                 <span>Promo Coupon</span>
               </label>
 
               {appliedCoupon ? (
-                <div className="flex justify-between items-center bg-teal-50 border border-teal-200 text-teal-800 px-3 py-2 rounded-lg text-xs font-bold">
+                <div className="flex justify-between items-center bg-blue-50 border border-blue-200 text-blue-800 px-3 py-2 rounded-lg text-xs font-bold">
                   <span>Code '{appliedCoupon}' Applied!</span>
                   <button
                     onClick={handleRemoveCoupon}
@@ -297,11 +297,11 @@ export const Checkout = () => {
                     placeholder="e.g. SAVE20"
                     value={couponCode}
                     onChange={e => setCouponCode(e.target.value.toUpperCase())}
-                    className="flex-1 text-xs border border-gray-200 rounded-lg p-2 font-mono uppercase focus:ring-1 focus:ring-teal-500 focus:outline-none"
+                    className="flex-1 text-xs border border-gray-200 rounded-lg p-2 font-mono uppercase focus:ring-1 focus:ring-blue-500 focus:outline-none"
                   />
                   <button
                     type="submit"
-                    className="bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-3 py-2 rounded-lg transition"
+                    className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-3.5 py-2 rounded-lg transition"
                   >
                     Apply
                   </button>
@@ -317,7 +317,7 @@ export const Checkout = () => {
             <button
               onClick={handleCreateReservation}
               disabled={submitting || loadingQuote}
-              className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition flex items-center justify-center space-x-2 disabled:opacity-50 text-sm"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition flex items-center justify-center space-x-2 disabled:opacity-50 text-sm"
             >
               {submitting ? (
                 <>
@@ -326,15 +326,15 @@ export const Checkout = () => {
                 </>
               ) : (
                 <>
-                  <span>Confirm & Proceed to Payment</span>
+                  <span>Proceed to Payment</span>
                   <ArrowRight className="w-4 h-4" />
                 </>
               )}
             </button>
 
             <div className="flex items-center justify-center space-x-1.5 text-[11px] text-gray-400">
-              <ShieldCheck className="w-3.5 h-3.5 text-teal-600" />
-              <span>Guaranteed double-booking prevention barrier</span>
+              <ShieldCheck className="w-3.5 h-3.5 text-blue-600" />
+              <span>Instant confirmed reservation</span>
             </div>
           </div>
         </div>
