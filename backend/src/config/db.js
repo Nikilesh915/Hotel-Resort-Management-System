@@ -5,6 +5,10 @@ import { MongoMemoryReplSet, MongoMemoryServer } from 'mongodb-memory-server';
 let memoryReplSet = null;
 
 export const connectDB = async (uri = process.env.MONGODB_URI) => {
+  if (mongoose.connection.readyState >= 1) {
+    return mongoose.connection;
+  }
+
   try {
     let mongoUri = uri;
 
@@ -22,7 +26,7 @@ export const connectDB = async (uri = process.env.MONGODB_URI) => {
         mongoUri = memServer.getUri();
       }
     } else if (mongoUri.startsWith('mongodb+srv://')) {
-      // Ensure reliable DNS SRV resolution on Windows
+      // Ensure reliable DNS SRV resolution across environments
       try {
         dns.setServers(['8.8.8.8', '1.1.1.1']);
       } catch (dnsErr) {
