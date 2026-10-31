@@ -7,8 +7,8 @@ A full-stack hotel and property reservation management platform built with the *
 ## Complete Setup Instructions
 
 ### Prerequisites
-* **Node.js**: v18.0.0 or higher
-* **npm**: v9.0.0 or higher
+* Node.js: v18.0.0 or higher
+* npm: v9.0.0 or higher
 
 ---
 
@@ -25,7 +25,7 @@ A full-stack hotel and property reservation management platform built with the *
    ```
 
 3. **Configure Environment Variables**:
-   Create or verify the `backend/.env` file:
+   Create or verify the backend/.env file:
    ```env
    PORT=5000
    NODE_ENV=development
@@ -67,7 +67,7 @@ A full-stack hotel and property reservation management platform built with the *
    ```bash
    npm run dev
    ```
-   *The frontend runs at `http://localhost:3000` (or `http://localhost:3001` if port 3000 is occupied).*
+   *The frontend runs at `http://localhost:3000`.*
 
 ---
 
