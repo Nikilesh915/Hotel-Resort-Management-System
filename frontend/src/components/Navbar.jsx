@@ -9,15 +9,20 @@ export const Navbar = () => {
 
   const handleLogout = () => {
     logout();
-    navigate('/');
+    navigate('/login');
   };
+
+  const isAdminOrManager = user && ['ADMIN', 'PROPERTY_MANAGER'].includes(user.role);
 
   return (
     <nav className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center space-x-3">
-            <Link to="/" className="flex items-center space-x-2 text-blue-600 font-black text-2xl tracking-tight">
+            <Link
+              to={isAdminOrManager ? '/admin' : '/'}
+              className="flex items-center space-x-2 text-blue-600 font-black text-2xl tracking-tight"
+            >
               <Hotel className="w-7 h-7 text-blue-600" />
               <span>Grand<span className="text-gray-900">Stay</span></span>
             </Link>
@@ -27,12 +32,29 @@ export const Navbar = () => {
           </div>
 
           <div className="flex items-center space-x-4">
-            <Link
-              to="/search"
-              className="text-gray-700 hover:text-blue-600 font-bold text-xs sm:text-sm transition"
-            >
-              Browse Stays
-            </Link>
+            {/* Search Stays: Visible only for Guests and unauthenticated visitors */}
+            {!isAdminOrManager && (
+              <Link
+                to="/search"
+                className="text-gray-700 hover:text-blue-600 font-bold text-xs sm:text-sm transition"
+              >
+                Search Stays
+              </Link>
+            )}
+
+            {/* Administrator / Property Manager Navigation */}
+            {isAdminOrManager && (
+              <div className="hidden md:flex items-center space-x-3 text-xs font-semibold text-gray-600">
+                <Link to="/admin" className="hover:text-blue-600 transition">Dashboard</Link>
+                <Link to="/admin/properties" className="hover:text-blue-600 transition">Properties</Link>
+                <Link to="/admin/rooms" className="hover:text-blue-600 transition">Rooms</Link>
+                <Link to="/admin/pricing" className="hover:text-blue-600 transition">Pricing</Link>
+                <Link to="/admin/reservations" className="hover:text-blue-600 transition">Reservations</Link>
+                <Link to="/admin/refunds" className="hover:text-blue-600 transition">Refunds</Link>
+                <Link to="/admin/coupons" className="hover:text-blue-600 transition">Coupons</Link>
+                <Link to="/admin/reports" className="hover:text-blue-600 transition">Reports</Link>
+              </div>
+            )}
 
             {user ? (
               <div className="flex items-center space-x-3">
@@ -46,7 +68,7 @@ export const Navbar = () => {
                   </Link>
                 )}
 
-                {['ADMIN', 'PROPERTY_MANAGER'].includes(user.role) && (
+                {isAdminOrManager && (
                   <Link
                     to="/admin"
                     className="flex items-center space-x-1.5 text-white bg-blue-600 hover:bg-blue-700 text-xs font-bold px-3 py-1.5 rounded-lg shadow-sm transition"

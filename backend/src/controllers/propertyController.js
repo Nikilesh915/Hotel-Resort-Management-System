@@ -1,7 +1,7 @@
 import { Property } from '../models/Property.js';
 import { RoomType } from '../models/RoomType.js';
 import { Room } from '../models/Room.js';
-import { NotFoundError, BadRequestError } from '../utils/errors.js';
+import { NotFoundError, BadRequestError, ForbiddenError } from '../utils/errors.js';
 
 export const getProperties = async (req, res, next) => {
   try {
@@ -11,6 +11,10 @@ export const getProperties = async (req, res, next) => {
     // For public/guest, only show ACTIVE
     if (!req.user || req.user.role === 'GUEST') {
       filter.status = 'ACTIVE';
+    } else if (req.user.role === 'PROPERTY_MANAGER') {
+      // Property Manager only sees properties they manage
+      filter.manager_user_id = req.user.user_id;
+      if (status) filter.status = status;
     } else if (status) {
       filter.status = status;
     }
@@ -38,6 +42,10 @@ export const getPropertyById = async (req, res, next) => {
 
     if (!property) {
       throw new NotFoundError(`Property '${id}' not found`, 'PROPERTY_NOT_FOUND');
+    }
+
+    if (req.user && req.user.role === 'PROPERTY_MANAGER' && property.manager_user_id !== req.user.user_id) {
+      throw new ForbiddenError('You do not manage this property', 'FORBIDDEN');
     }
 
     const roomTypes = await RoomType.find({ property_id: property.property_id, status: 'ACTIVE' });

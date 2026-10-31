@@ -13,6 +13,9 @@ import { AdminProperties } from '../pages/admin/AdminProperties';
 import { AdminRooms } from '../pages/admin/AdminRooms';
 import { AdminReservations } from '../pages/admin/AdminReservations';
 import { AdminCoupons } from '../pages/admin/AdminCoupons';
+import { AdminPricing } from '../pages/admin/AdminPricing';
+import { AdminRefunds } from '../pages/admin/AdminRefunds';
+import { AdminReports } from '../pages/admin/AdminReports';
 
 const ProtectedRoute = ({ children, allowedRoles }) => {
   const { user, loading } = useAuth();
@@ -24,25 +27,48 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
   }
 
   if (allowedRoles && !allowedRoles.includes(user.role)) {
-    return <Navigate to="/" replace />;
+    const fallback = ['ADMIN', 'PROPERTY_MANAGER'].includes(user.role) ? '/admin' : '/';
+    return <Navigate to={fallback} replace />;
   }
 
   return children;
 };
 
 export const AppRoutes = () => {
+  const { user, loading } = useAuth();
+
+  if (loading) return null;
+
+  const isAdminOrManager = user && ['ADMIN', 'PROPERTY_MANAGER'].includes(user.role);
+
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/search" element={<SearchPage />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
+      {/* Home Page: Automatically routes administrators to their Admin / Manager Portal */}
+      <Route
+        path="/"
+        element={isAdminOrManager ? <Navigate to="/admin" replace /> : <Home />}
+      />
+
+      {/* Search Stays: Only accessible to guests/public; administrators are redirected to /admin */}
+      <Route
+        path="/search"
+        element={isAdminOrManager ? <Navigate to="/admin" replace /> : <SearchPage />}
+      />
+
+      <Route
+        path="/login"
+        element={isAdminOrManager ? <Navigate to="/admin" replace /> : <Login />}
+      />
+      <Route
+        path="/register"
+        element={isAdminOrManager ? <Navigate to="/admin" replace /> : <Register />}
+      />
 
       {/* Guest Protected Routes */}
       <Route
         path="/checkout/:roomId"
         element={
-          <ProtectedRoute allowedRoles={['GUEST', 'ADMIN']}>
+          <ProtectedRoute allowedRoles={['GUEST']}>
             <Checkout />
           </ProtectedRoute>
         }
@@ -50,7 +76,7 @@ export const AppRoutes = () => {
       <Route
         path="/payment/:reservationId"
         element={
-          <ProtectedRoute allowedRoles={['GUEST', 'ADMIN']}>
+          <ProtectedRoute allowedRoles={['GUEST']}>
             <PaymentPage />
           </ProtectedRoute>
         }
@@ -100,15 +126,38 @@ export const AppRoutes = () => {
       <Route
         path="/admin/coupons"
         element={
-          <ProtectedRoute allowedRoles={['ADMIN']}>
+          <ProtectedRoute allowedRoles={['ADMIN', 'PROPERTY_MANAGER']}>
             <AdminCoupons />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/admin/pricing"
+        element={
+          <ProtectedRoute allowedRoles={['ADMIN', 'PROPERTY_MANAGER']}>
+            <AdminPricing />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/admin/refunds"
+        element={
+          <ProtectedRoute allowedRoles={['ADMIN', 'PROPERTY_MANAGER']}>
+            <AdminRefunds />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/admin/reports"
+        element={
+          <ProtectedRoute allowedRoles={['ADMIN', 'PROPERTY_MANAGER']}>
+            <AdminReports />
           </ProtectedRoute>
         }
       />
 
       {/* Fallback */}
-      <Route path="*" element={<Navigate to="/" replace />} />
+      <Route path="*" element={<Navigate to={isAdminOrManager ? "/admin" : "/"} replace />} />
     </Routes>
   );
 };
-

@@ -11,6 +11,19 @@ export default defineConfig({
         changeOrigin: true
       }
     }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        entryFileNames: 'assets/grandstay-app.js',
+        chunkFileNames: 'assets/grandstay-chunk-[name].js',
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name && assetInfo.name.endsWith('.css')) {
+            return 'assets/grandstay-styles.css';
+          }
+          return 'assets/grandstay-[name][extname]';
+        }
+      }
+    }
   }
 });
-

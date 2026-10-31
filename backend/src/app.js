@@ -12,6 +12,7 @@ import couponRoutes from './routes/couponRoutes.js';
 import paymentRoutes from './routes/paymentRoutes.js';
 import refundRoutes from './routes/refundRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
+import pricingRoutes from './routes/pricingRoutes.js';
 import { errorHandler } from './middleware/errorHandler.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -32,7 +33,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/properties', propertyRoutes);
 app.use('/api/rooms', roomRoutes);
 app.use('/api/search', searchRoutes);
-app.use('/api/pricing', searchRoutes);
+app.use('/api/pricing', pricingRoutes);
 app.use('/api/reservations', reservationRoutes);
 app.use('/api/coupons', couponRoutes);
 app.use('/api/payments', paymentRoutes);

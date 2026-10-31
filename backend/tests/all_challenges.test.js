@@ -32,9 +32,8 @@ describe('The Eight Technical Challenges - Comprehensive Test Suite', () => {
     guestTwoToken = guestTwoRes.body.data.token;
   });
 
-  // ==========================================
   // CHALLENGE 1: The Double-Booking Problem
-  // ==========================================
+
   test('Challenge 1: Concurrent requests for the same room and dates should result in exactly 1 success and conflicts for the rest', async () => {
     // ROOM-102 is available for Nov 10 - Nov 15
     const payload = {
@@ -68,9 +67,8 @@ describe('The Eight Technical Challenges - Comprehensive Test Suite', () => {
     expect(dbReservations.length).toBe(1);
   }, 30000);
 
-  // ==========================================
   // CHALLENGE 2: Date-Range Overlap Problem
-  // ==========================================
+
   describe('Challenge 2: Date-Range Overlap Logic', () => {
     // RES-001 in mock_data is ROOM-101 from 2024-09-20 to 2024-09-25
     test('Rejects partial overlap (starts before, ends inside: Sep 18 - Sep 21)', async () => {
@@ -130,9 +128,8 @@ describe('The Eight Technical Challenges - Comprehensive Test Suite', () => {
     });
   });
 
-  // ==========================================
   // CHALLENGE 3: The Price Manipulation Problem
-  // ==========================================
+
   test('Challenge 3: Backend ignores manipulated prices/discounts and strictly calculates correct amount server-side', async () => {
     // Malicious user sends fake price = 500, discount = 9999, tax = 0, total = 500
     const maliciousPayload = {
@@ -164,9 +161,8 @@ describe('The Eight Technical Challenges - Comprehensive Test Suite', () => {
     expect(reservation.total_amount).toBe(10580);
   });
 
-  // ==========================================
   // CHALLENGE 4: The Coupon Abuse Problem
-  // ==========================================
+
   describe('Challenge 4: Coupon Abuse Protections', () => {
     test('Rejects expired coupon (OLD10)', async () => {
       const res = await request(app)
@@ -235,9 +231,8 @@ describe('The Eight Technical Challenges - Comprehensive Test Suite', () => {
     });
   });
 
-  // ==========================================
   // CHALLENGE 5: Reservation State Machine Problem
-  // ==========================================
+
   describe('Challenge 5: Reservation State Machine Enforcement', () => {
     test('Rejects invalid transition: CHECKED_OUT -> CONFIRMED', async () => {
       // RES-003 is CHECKED_OUT
@@ -279,9 +274,8 @@ describe('The Eight Technical Challenges - Comprehensive Test Suite', () => {
     });
   });
 
-  // ==========================================
   // CHALLENGE 6: The Duplicate Payment Problem & Idempotency
-  // ==========================================
+
   test('Challenge 6: Idempotent payment processing prevents double charging on request retries', async () => {
     // RES-005 is PENDING
     const idempotency_key = 'idem-test-pay-12345';
@@ -319,9 +313,8 @@ describe('The Eight Technical Challenges - Comprehensive Test Suite', () => {
     expect(paymentsCount).toBe(1);
   });
 
-  // ==========================================
   // CHALLENGE 7: Cancellation & Refund Integrity
-  // ==========================================
+
   describe('Challenge 7: Cancellation & Refund Integrity', () => {
     test('Server calculates cancellation fee & refund strictly; client cannot tamper with amounts', async () => {
       // RES-001 is CONFIRMED with total_amount = 17300, policy STRICT
@@ -356,9 +349,8 @@ describe('The Eight Technical Challenges - Comprehensive Test Suite', () => {
     });
   });
 
-  // ==========================================
   // CHALLENGE 8: Unauthorized Access & IDOR
-  // ==========================================
+
   describe('Challenge 8: Resource Ownership & IDOR Protection', () => {
     test('Guest A cannot view Guest B reservation (GET /api/reservations/RES-002 returns 404)', async () => {
       // Guest 1 attempts to access RES-002 (owned by Guest 2)

@@ -53,7 +53,7 @@
       "phone": "+91-9876543201",
       "address": "123 Guest St, Mumbai",
       "status": "ACTIVE",
-      "created_at": "2024-01-01T10:00:00Z"
+      "created_at": "2026-01-01T10:00:00Z"
     },
     {
       "guest_id": "GST-002",
@@ -64,7 +64,7 @@
       "phone": "+91-9876543202",
       "address": "456 Visitor Road, Delhi",
       "status": "ACTIVE",
-      "created_at": "2024-01-02T11:00:00Z"
+      "created_at": "2026-01-02T11:00:00Z"
     },
     {
       "guest_id": "GST-003",
@@ -75,7 +75,7 @@
       "phone": "+91-9876543203",
       "address": "789 Tourist Ave, Goa",
       "status": "ACTIVE",
-      "created_at": "2024-01-03T12:00:00Z"
+      "created_at": "2026-01-03T12:00:00Z"
     }
   ],
   "properties": [
@@ -90,7 +90,7 @@
       "country": "India",
       "status": "ACTIVE",
       "manager_user_id": "USR-002",
-      "created_at": "2023-01-01T10:00:00Z"
+      "created_at": "2025-01-01T10:00:00Z"
     },
     {
       "property_id": "PROP-002",
@@ -103,7 +103,7 @@
       "country": "India",
       "status": "ACTIVE",
       "manager_user_id": "USR-003",
-      "created_at": "2023-02-01T10:00:00Z"
+      "created_at": "2025-02-01T10:00:00Z"
     }
   ],
   "room_types": [
@@ -113,7 +113,7 @@
       "name": "STANDARD",
       "description": "Standard room with basic amenities",
       "max_guests": 2,
-      "base_price_per_night": 3000.00,
+      "base_price_per_night": 3000,
       "status": "ACTIVE"
     },
     {
@@ -122,7 +122,7 @@
       "name": "DELUXE",
       "description": "Deluxe room with sea view",
       "max_guests": 3,
-      "base_price_per_night": 5000.00,
+      "base_price_per_night": 5000,
       "status": "ACTIVE"
     },
     {
@@ -131,7 +131,7 @@
       "name": "SUITE",
       "description": "Luxury suite with private pool",
       "max_guests": 4,
-      "base_price_per_night": 12000.00,
+      "base_price_per_night": 12000,
       "status": "ACTIVE"
     }
   ],
@@ -186,27 +186,27 @@
     {
       "pricing_id": "PRC-001",
       "room_type_id": "RTYP-001",
-      "start_date": "2024-01-01T00:00:00Z",
-      "end_date": "2024-12-31T23:59:59Z",
-      "price_per_night": 3000.00,
+      "start_date": "2026-01-01T00:00:00Z",
+      "end_date": "2026-12-31T23:59:59Z",
+      "price_per_night": 3000,
       "pricing_type": "BASE",
       "status": "ACTIVE"
     },
     {
       "pricing_id": "PRC-002",
       "room_type_id": "RTYP-002",
-      "start_date": "2024-01-01T00:00:00Z",
-      "end_date": "2024-12-31T23:59:59Z",
-      "price_per_night": 5000.00,
+      "start_date": "2026-01-01T00:00:00Z",
+      "end_date": "2026-12-31T23:59:59Z",
+      "price_per_night": 5000,
       "pricing_type": "BASE",
       "status": "ACTIVE"
     },
     {
       "pricing_id": "PRC-003",
       "room_type_id": "RTYP-002",
-      "start_date": "2024-12-01T00:00:00Z",
-      "end_date": "2025-01-15T23:59:59Z",
-      "price_per_night": 7000.00,
+      "start_date": "2026-12-01T00:00:00Z",
+      "end_date": "2027-01-15T23:59:59Z",
+      "price_per_night": 7000,
       "pricing_type": "SEASONAL",
       "status": "ACTIVE"
     }
@@ -218,18 +218,18 @@
       "guest_id": "GST-001",
       "property_id": "PROP-001",
       "room_id": "ROOM-101",
-      "check_in_date": "2024-09-20T14:00:00Z",
-      "check_out_date": "2024-09-25T11:00:00Z",
+      "check_in_date": "2026-09-20T14:00:00Z",
+      "check_out_date": "2026-09-25T11:00:00Z",
       "guests_count": 2,
-      "base_amount": 15000.00,
-      "discount_amount": 0.00,
-      "tax_amount": 1800.00,
-      "service_fee": 500.00,
-      "total_amount": 17300.00,
+      "base_amount": 15000,
+      "discount_amount": 0,
+      "tax_amount": 1800,
+      "service_fee": 500,
+      "total_amount": 17300,
       "status": "CONFIRMED",
       "cancellation_policy": "STRICT",
-      "created_at": "2024-09-01T10:00:00Z",
-      "updated_at": "2024-09-01T10:05:00Z"
+      "created_at": "2026-09-01T10:00:00Z",
+      "updated_at": "2026-09-01T10:05:00Z"
     },
     {
       "reservation_id": "RES-002",
@@ -237,18 +237,18 @@
       "guest_id": "GST-002",
       "property_id": "PROP-001",
       "room_id": "ROOM-102",
-      "check_in_date": "2024-09-22T14:00:00Z",
-      "check_out_date": "2024-09-27T11:00:00Z",
+      "check_in_date": "2026-09-22T14:00:00Z",
+      "check_out_date": "2026-09-27T11:00:00Z",
       "guests_count": 1,
-      "base_amount": 15000.00,
-      "discount_amount": 1500.00,
-      "tax_amount": 1620.00,
-      "service_fee": 500.00,
-      "total_amount": 15620.00,
+      "base_amount": 15000,
+      "discount_amount": 1500,
+      "tax_amount": 1620,
+      "service_fee": 500,
+      "total_amount": 15620,
       "status": "CONFIRMED",
       "cancellation_policy": "FLEXIBLE",
-      "created_at": "2024-09-02T11:00:00Z",
-      "updated_at": "2024-09-02T11:10:00Z"
+      "created_at": "2026-09-02T11:00:00Z",
+      "updated_at": "2026-09-02T11:10:00Z"
     },
     {
       "reservation_id": "RES-003",
@@ -256,18 +256,18 @@
       "guest_id": "GST-003",
       "property_id": "PROP-001",
       "room_id": "ROOM-201",
-      "check_in_date": "2024-09-15T14:00:00Z",
-      "check_out_date": "2024-09-18T11:00:00Z",
+      "check_in_date": "2026-09-15T14:00:00Z",
+      "check_out_date": "2026-09-18T11:00:00Z",
       "guests_count": 2,
-      "base_amount": 15000.00,
-      "discount_amount": 0.00,
-      "tax_amount": 1800.00,
-      "service_fee": 500.00,
-      "total_amount": 17300.00,
+      "base_amount": 15000,
+      "discount_amount": 0,
+      "tax_amount": 1800,
+      "service_fee": 500,
+      "total_amount": 17300,
       "status": "CHECKED_OUT",
       "cancellation_policy": "MODERATE",
-      "created_at": "2024-09-05T09:00:00Z",
-      "updated_at": "2024-09-18T11:30:00Z"
+      "created_at": "2026-09-05T09:00:00Z",
+      "updated_at": "2026-09-18T11:30:00Z"
     },
     {
       "reservation_id": "RES-004",
@@ -275,18 +275,18 @@
       "guest_id": "GST-001",
       "property_id": "PROP-002",
       "room_id": "ROOM-301",
-      "check_in_date": "2024-09-25T14:00:00Z",
-      "check_out_date": "2024-09-30T11:00:00Z",
+      "check_in_date": "2026-09-25T14:00:00Z",
+      "check_out_date": "2026-09-30T11:00:00Z",
       "guests_count": 4,
-      "base_amount": 60000.00,
-      "discount_amount": 0.00,
-      "tax_amount": 7200.00,
-      "service_fee": 1000.00,
-      "total_amount": 68200.00,
+      "base_amount": 60000,
+      "discount_amount": 0,
+      "tax_amount": 7200,
+      "service_fee": 1000,
+      "total_amount": 68200,
       "status": "CANCELLED",
       "cancellation_policy": "STRICT",
-      "created_at": "2024-09-10T15:00:00Z",
-      "updated_at": "2024-09-12T16:00:00Z"
+      "created_at": "2026-09-10T15:00:00Z",
+      "updated_at": "2026-09-12T16:00:00Z"
     },
     {
       "reservation_id": "RES-005",
@@ -294,18 +294,18 @@
       "guest_id": "GST-002",
       "property_id": "PROP-001",
       "room_id": "ROOM-101",
-      "check_in_date": "2024-10-01T14:00:00Z",
-      "check_out_date": "2024-10-05T11:00:00Z",
+      "check_in_date": "2026-10-01T14:00:00Z",
+      "check_out_date": "2026-10-05T11:00:00Z",
       "guests_count": 2,
-      "base_amount": 12000.00,
-      "discount_amount": 0.00,
-      "tax_amount": 1440.00,
-      "service_fee": 500.00,
-      "total_amount": 13940.00,
+      "base_amount": 12000,
+      "discount_amount": 0,
+      "tax_amount": 1440,
+      "service_fee": 500,
+      "total_amount": 13940,
       "status": "PENDING",
       "cancellation_policy": "FLEXIBLE",
-      "created_at": "2024-09-20T08:00:00Z",
-      "updated_at": "2024-09-20T08:00:00Z"
+      "created_at": "2026-09-20T08:00:00Z",
+      "updated_at": "2026-09-20T08:00:00Z"
     }
   ],
   "coupons": [
@@ -313,13 +313,13 @@
       "coupon_id": "CPN-001",
       "code": "SAVE20",
       "discount_type": "PERCENTAGE",
-      "discount_value": 20.0,
-      "maximum_discount": 5000.00,
-      "minimum_booking_amount": 10000.00,
+      "discount_value": 20,
+      "maximum_discount": 5000,
+      "minimum_booking_amount": 10000,
       "usage_limit": 100,
       "per_customer_limit": 1,
-      "valid_from": "2024-01-01T00:00:00Z",
-      "valid_until": "2024-12-31T23:59:59Z",
+      "valid_from": "2026-01-01T00:00:00Z",
+      "valid_until": "2026-12-31T23:59:59Z",
       "applicable_property_id": null,
       "status": "ACTIVE"
     },
@@ -327,13 +327,13 @@
       "coupon_id": "CPN-002",
       "code": "FLAT1500",
       "discount_type": "FIXED",
-      "discount_value": 1500.00,
-      "maximum_discount": 1500.00,
-      "minimum_booking_amount": 5000.00,
+      "discount_value": 1500,
+      "maximum_discount": 1500,
+      "minimum_booking_amount": 5000,
       "usage_limit": 50,
       "per_customer_limit": 1,
-      "valid_from": "2024-01-01T00:00:00Z",
-      "valid_until": "2024-12-31T23:59:59Z",
+      "valid_from": "2026-01-01T00:00:00Z",
+      "valid_until": "2026-12-31T23:59:59Z",
       "applicable_property_id": "PROP-001",
       "status": "ACTIVE"
     },
@@ -341,13 +341,13 @@
       "coupon_id": "CPN-003",
       "code": "OLD10",
       "discount_type": "PERCENTAGE",
-      "discount_value": 10.0,
-      "maximum_discount": 2000.00,
-      "minimum_booking_amount": 5000.00,
+      "discount_value": 10,
+      "maximum_discount": 2000,
+      "minimum_booking_amount": 5000,
       "usage_limit": 1000,
       "per_customer_limit": 2,
-      "valid_from": "2023-01-01T00:00:00Z",
-      "valid_until": "2023-12-31T23:59:59Z",
+      "valid_from": "2025-01-01T00:00:00Z",
+      "valid_until": "2025-12-31T23:59:59Z",
       "applicable_property_id": null,
       "status": "EXPIRED"
     },
@@ -355,13 +355,13 @@
       "coupon_id": "CPN-004",
       "code": "BLOCKED50",
       "discount_type": "FIXED",
-      "discount_value": 5000.00,
-      "maximum_discount": 5000.00,
-      "minimum_booking_amount": 20000.00,
+      "discount_value": 5000,
+      "maximum_discount": 5000,
+      "minimum_booking_amount": 20000,
       "usage_limit": 10,
       "per_customer_limit": 1,
-      "valid_from": "2024-01-01T00:00:00Z",
-      "valid_until": "2024-12-31T23:59:59Z",
+      "valid_from": "2026-01-01T00:00:00Z",
+      "valid_until": "2026-12-31T23:59:59Z",
       "applicable_property_id": null,
       "status": "DISABLED"
     }
@@ -372,8 +372,8 @@
       "coupon_id": "CPN-002",
       "reservation_id": "RES-002",
       "guest_id": "GST-002",
-      "discount_amount": 1500.00,
-      "redeemed_at": "2024-09-02T11:05:00Z",
+      "discount_amount": 1500,
+      "redeemed_at": "2026-09-02T11:05:00Z",
       "status": "SUCCESS"
     }
   ],
@@ -383,52 +383,52 @@
       "payment_reference": "TXN-987654321",
       "reservation_id": "RES-001",
       "guest_id": "GST-001",
-      "amount": 17300.00,
+      "amount": 17300,
       "currency": "INR",
       "payment_method": "CARD",
       "status": "SUCCESS",
       "idempotency_key": "idem-payment-001",
-      "paid_at": "2024-09-01T10:05:00Z",
-      "created_at": "2024-09-01T10:02:00Z"
+      "paid_at": "2026-09-01T10:05:00Z",
+      "created_at": "2026-09-01T10:02:00Z"
     },
     {
       "payment_id": "PAY-002",
       "payment_reference": "TXN-987654322",
       "reservation_id": "RES-004",
       "guest_id": "GST-001",
-      "amount": 68200.00,
+      "amount": 68200,
       "currency": "INR",
       "payment_method": "UPI",
       "status": "REFUNDED",
       "idempotency_key": "idem-payment-002",
-      "paid_at": "2024-09-10T15:10:00Z",
-      "created_at": "2024-09-10T15:05:00Z"
+      "paid_at": "2026-09-10T15:10:00Z",
+      "created_at": "2026-09-10T15:05:00Z"
     },
     {
       "payment_id": "PAY-003",
       "payment_reference": "TXN-987654323",
       "reservation_id": "RES-005",
       "guest_id": "GST-002",
-      "amount": 13940.00,
+      "amount": 13940,
       "currency": "INR",
       "payment_method": "NET_BANKING",
       "status": "PENDING",
       "idempotency_key": "idem-payment-003",
       "paid_at": null,
-      "created_at": "2024-09-20T08:02:00Z"
+      "created_at": "2026-09-20T08:02:00Z"
     },
     {
       "payment_id": "PAY-004",
       "payment_reference": "TXN-987654324",
       "reservation_id": "RES-005",
       "guest_id": "GST-002",
-      "amount": 13940.00,
+      "amount": 13940,
       "currency": "INR",
       "payment_method": "CARD",
       "status": "FAILED",
       "idempotency_key": "idem-payment-004",
       "paid_at": null,
-      "created_at": "2024-09-20T08:00:00Z"
+      "created_at": "2026-09-20T08:00:00Z"
     }
   ],
   "refunds": [
@@ -438,13 +438,13 @@
       "reservation_id": "RES-004",
       "payment_id": "PAY-002",
       "guest_id": "GST-001",
-      "original_amount": 68200.00,
-      "cancellation_fee": 6820.00,
-      "refund_amount": 61380.00,
+      "original_amount": 68200,
+      "cancellation_fee": 6820,
+      "refund_amount": 61380,
       "reason": "Guest requested cancellation",
       "status": "SUCCESS",
       "idempotency_key": "idem-refund-001",
-      "refunded_at": "2024-09-12T16:05:00Z"
+      "refunded_at": "2026-09-12T16:05:00Z"
     }
   ],
   "audit_logs": [
@@ -456,9 +456,9 @@
       "entity_id": "RES-001",
       "metadata": {
         "room_id": "ROOM-101",
-        "dates": "2024-09-20 to 2024-09-25"
+        "dates": "2026-09-20 to 2026-09-25"
       },
-      "created_at": "2024-09-01T10:00:00Z"
+      "created_at": "2026-09-01T10:00:00Z"
     },
     {
       "audit_id": "AUD-002",
@@ -467,10 +467,10 @@
       "entity_type": "PAYMENT",
       "entity_id": "PAY-001",
       "metadata": {
-        "amount": 17300.00,
+        "amount": 17300,
         "status": "SUCCESS"
       },
-      "created_at": "2024-09-01T10:05:00Z"
+      "created_at": "2026-09-01T10:05:00Z"
     },
     {
       "audit_id": "AUD-003",
@@ -481,7 +481,7 @@
       "metadata": {
         "reason": "Guest request"
       },
-      "created_at": "2024-09-12T16:00:00Z"
+      "created_at": "2026-09-12T16:00:00Z"
     },
     {
       "audit_id": "AUD-004",
@@ -490,9 +490,9 @@
       "entity_type": "REFUND",
       "entity_id": "REF-001",
       "metadata": {
-        "refund_amount": 61380.00
+        "refund_amount": 61380
       },
-      "created_at": "2024-09-12T16:05:00Z"
+      "created_at": "2026-09-12T16:05:00Z"
     }
   ]
 }

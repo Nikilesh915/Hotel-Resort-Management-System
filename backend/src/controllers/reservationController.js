@@ -154,6 +154,16 @@ export const handleUpdateStatus = async (req, res, next) => {
     const { id } = req.params;
     const { status } = req.body;
 
+    if (req.user.role === 'PROPERTY_MANAGER') {
+      const existingRes = await Reservation.findOne({ reservation_id: id });
+      if (existingRes) {
+        const prop = await Property.findOne({ property_id: existingRes.property_id });
+        if (prop?.manager_user_id !== req.user.user_id) {
+          throw new ForbiddenError('You do not manage the property for this reservation', 'FORBIDDEN');
+        }
+      }
+    }
+
     const reservation = await updateReservationStatus({
       reservation_id: id,
       new_status: status,
@@ -174,6 +184,16 @@ export const handleCancelReservation = async (req, res, next) => {
   try {
     const { id } = req.params;
     const { reason, idempotency_key } = req.body;
+
+    if (req.user.role === 'PROPERTY_MANAGER') {
+      const existingRes = await Reservation.findOne({ reservation_id: id });
+      if (existingRes) {
+        const prop = await Property.findOne({ property_id: existingRes.property_id });
+        if (prop?.manager_user_id !== req.user.user_id) {
+          throw new ForbiddenError('You do not manage the property for this reservation', 'FORBIDDEN');
+        }
+      }
+    }
 
     const guest_id = req.user.role === 'GUEST' ? req.user.guest_id : null;
 
