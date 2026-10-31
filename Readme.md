@@ -1,6 +1,22 @@
 # GrandStay — Hotel & Property Reservation Management Platform
 
-A full-stack hotel and property reservation management platform built with the **MERN Stack** (MongoDB, Express.js, React, Node.js) and Tailwind CSS.
+A full-stack hotel and property reservation management platform built with the **MERN Stack** (MongoDB, Express.js, React 18, Node.js) and Tailwind CSS.
+
+---
+
+## Demo Accounts
+
+All pre-seeded accounts use password: `Password123!`
+
+| Role | Email | Password | Access Scope |
+|---|---|---|---|
+| **Super Admin** | `admin@example.com` | `Password123!` | All Properties Platform-wide |
+| **Property Manager (Mumbai)** | `manager1@example.com` | `Password123!` | Grand Mumbai Hotel (`PROP-001`) only |
+| **Property Manager (Goa)** | `manager2@example.com` | `Password123!` | Sunset Goa Resort (`PROP-002`) only |
+| **Guest 1** | `guest1@example.com` | `Password123!` | Guest Bookings & Checkout |
+| **Guest 2** | `guest2@example.com` | `Password123!` | Guest Bookings & Checkout |
+
+> *Quick Login*: The sign-in page (`/login`) includes 1-click demo login buttons to instantly fill and sign in with any role.
 
 ---
 
@@ -19,26 +35,25 @@ A full-stack hotel and property reservation management platform built with the *
    cd backend
    ```
 
-2. **Install backend dependencies**:
+2. **Install dependencies**:
    ```bash
    npm install
    ```
 
 3. **Configure Environment Variables**:
-   Create a `.env` file in the `backend/` directory:
+   Create or verify the `backend/.env` file:
    ```env
    PORT=5000
    NODE_ENV=development
    JWT_SECRET=super_secret_jwt_key_hotel_platform_2026
    AUTO_SEED=true
 
-   # Optional: Provide an external MongoDB URI.
-   # If left commented out, an embedded MongoDB Replica Set runs in-memory automatically.
-   # MONGODB_URI=mongodb://localhost:27017/hotel_reservation
+   # Optional external MongoDB (if omitted, an in-memory replica set starts automatically):
+   # MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.uzassjq.mongodb.net/hotel_reservation?retryWrites=true&w=majority
    ```
 
 4. **Seed Database (Automatic or Manual)**:
-   * **Automatic**: The backend automatically seeds initial data from `mock_data.json` on startup when `AUTO_SEED=true` or when using in-memory MongoDB.
+   * **Automatic**: When `AUTO_SEED=true` or when using in-memory MongoDB, initial data from `mock_data.json` is automatically populated on startup.
    * **Manual**:
      ```bash
      npm run seed
@@ -48,7 +63,7 @@ A full-stack hotel and property reservation management platform built with the *
    ```bash
    npm run dev
    ```
-   *The backend runs at `http://localhost:5000`.*
+   *The backend API runs at `http://localhost:5000`.*
 
 ---
 
@@ -59,22 +74,22 @@ A full-stack hotel and property reservation management platform built with the *
    cd frontend
    ```
 
-2. **Install frontend dependencies**:
+2. **Install dependencies**:
    ```bash
    npm install
    ```
 
-3. **Start Frontend Dev Server**:
+3. **Start Frontend Development Server**:
    ```bash
    npm run dev
    ```
-   *The frontend runs at `http://localhost:3000`.*
+   *The frontend runs at `http://localhost:3000` (or `http://localhost:3001` if port 3000 is occupied).*
 
 ---
 
 ### Step 3: Production Build (Single-Port Serving)
 
-To serve both frontend and backend from a single port (`http://localhost:5000`):
+To build the frontend and serve the entire application from the Express backend:
 
 1. **Build Frontend**:
    ```bash
@@ -88,8 +103,17 @@ To serve both frontend and backend from a single port (`http://localhost:5000`):
    npm start
    ```
 
-3. **Access Application**:
-   Open `http://localhost:5000` in your browser.
+3. **Open Application**:
+   Visit `http://localhost:5000` in your browser.
+
+---
+
+### Running Automated Tests
+
+```bash
+cd backend
+npm test
+```
 
 ---
 

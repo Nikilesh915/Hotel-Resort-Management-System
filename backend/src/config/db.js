@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import dns from 'dns';
 import { MongoMemoryReplSet, MongoMemoryServer } from 'mongodb-memory-server';
 
 let memoryReplSet = null;
@@ -19,6 +20,13 @@ export const connectDB = async (uri = process.env.MONGODB_URI) => {
         console.warn('Failed to start MongoMemoryReplSet, falling back to standalone MongoMemoryServer:', replError.message);
         const memServer = await MongoMemoryServer.create();
         mongoUri = memServer.getUri();
+      }
+    } else if (mongoUri.startsWith('mongodb+srv://')) {
+      // Ensure reliable DNS SRV resolution on Windows
+      try {
+        dns.setServers(['8.8.8.8', '1.1.1.1']);
+      } catch (dnsErr) {
+        console.warn('DNS server override notice:', dnsErr.message);
       }
     }
 
@@ -41,4 +49,3 @@ export const disconnectDB = async () => {
     console.error('Error disconnecting MongoDB:', error);
   }
 };
-
