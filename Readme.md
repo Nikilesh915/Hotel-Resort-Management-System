@@ -4,20 +4,6 @@ A full-stack hotel and property reservation management platform built with the *
 
 ---
 
-## Pre-Seeded Demo Accounts
-
-All accounts use password: `Password123!`
-
-| Role | Email | Password | Access Scope |
-|---|---|---|---|
-| **Super Admin** | `admin@example.com` | `Password123!` | All Properties Platform-wide |
-| **Property Manager (Mumbai)** | `manager1@example.com` | `Password123!` | Grand Mumbai Hotel (`PROP-001`) only |
-| **Property Manager (Goa)** | `manager2@example.com` | `Password123!` | Sunset Goa Resort (`PROP-002`) only |
-| **Guest 1** | `guest1@example.com` | `Password123!` | Guest Bookings & Checkout |
-| **Guest 2** | `guest2@example.com` | `Password123!` | Guest Bookings & Checkout |
-
----
-
 ## Complete Setup Instructions
 
 ### Prerequisites
